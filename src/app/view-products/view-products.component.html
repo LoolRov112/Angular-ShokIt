@@ -12,14 +12,14 @@
             <table class="table table-hover table-striped table-bordered text-center align-middle">
                 <thead class="table-dark">
                     <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Edit</th>
-                </tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Edit</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let p of products" class="table-success">
@@ -29,7 +29,7 @@
                         <td>{{p.price}}₪</td>
                         <td>{{p.description}}</td>
                         <td>{{p.category}}</td>
-                        <td><i class="bi bi-pencil-square"></i></td>
+                        <td><i class="bi bi-pencil-square" (click)="goToEdit(p.id)"></i></td>
                     </tr>
                 </tbody>
             </table>

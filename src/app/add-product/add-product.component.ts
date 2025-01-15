@@ -41,8 +41,8 @@ export class AddProductComponent {
     let description = this.addProductForm.value.productDescription;
     let category = this.addProductForm.value.productCategory;
     for (let p of this.productService.getproducts()) {
-      if(name==p.name && type==p.type){
-        alert("This Products alredy exists");
+      if (name == p.name && type == p.type) {
+        alert('This Products alredy exists');
         return;
       }
     }

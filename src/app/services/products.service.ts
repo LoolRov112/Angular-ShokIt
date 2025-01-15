@@ -215,6 +215,26 @@ export class ProductsService {
     );
     this.products.push(p);
   }
+  change(
+    id: number,
+    name: string,
+    type: string,
+    price: number,
+    img: string,
+    description: string,
+    category: string
+  ) {
+    let product = this.products.find((p) => p.id === id);
+    if (product) {
+      product.name = name;
+      product.type = type;
+      product.price = price;
+      product.img = img;
+      product.description = description;
+      product.category = category;
+    }
+  }
+
   getByPrice(price: number) {
     return this.products.filter((product) => product.price <= price);
   }
