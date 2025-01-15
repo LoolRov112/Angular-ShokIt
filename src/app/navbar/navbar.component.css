@@ -1,0 +1,39 @@
+* {
+  height: 3em;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #8a817c;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #dbf9f4;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #0a3d2a;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8a817c;
+  color: #dbf9f4;
+  padding: 10px 0;
+  z-index: 1000;
+}
+li a:active {
+  color: red;
+  background-color: #0a3d2a;
+}

@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-xl-2 px-sm-2 px-0 bg-dark mt-0">
+            <div
+                class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ms-0">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li>
+                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
+                            (click)="onCategorySelect('all')">
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">All</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link align-middle px-0" (click)="onCategorySelect('fruit')">
+                            <i class="fs-4 bi-apple"></i> <span class="ms-1 d-none d-sm-inline">Fruits</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
+                            (click)="onCategorySelect('vegetable')">
+                            <i class="fs-4 fas fa-carrot"></i> <span class="ms-1 d-none d-sm-inline">Vegetables</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="nav-link px-0 align-middle" (click)="onCategorySelect('nuts')">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Snacks</span>
+                        </button>
+                    </li>
+                    <li class="mb-5">
+                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
+                            (click)="onCategorySelect('dairy')">
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Dairy
+                                products</span>
+                        </button>
+                    </li>
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+</div>

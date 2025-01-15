@@ -1,0 +1,25 @@
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img [src]="userDetails.img" class="card-img-top" alt="Profile Picture">
+            </div>
+            <div class="mt-3">
+                <label class="btn btn-dark" for="file-upload">
+                    Change Picture
+                </label>
+                <input type="file" id="file-upload" (change)="onFileSelected($event)" accept="image/*"
+                    style="display:none;">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{userDetails.name}}</h2>
+                    <p class="card-text">Your mail: <strong>{{userDetails.mail}}</strong></p>
+                    <p class="card-text">Your birth date: <strong>{{userDetails.birthDate}}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
