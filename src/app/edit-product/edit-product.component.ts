@@ -30,18 +30,18 @@ export class EditProductComponent {
     this.productId = actRoute.snapshot.params['id'];
     this.product = productService.getById(this.productId);
     this.editFormGroup = this.formBuilder.group({
-      productName: ['', Validators.required],
-      productType: ['', Validators.required],
-      productPrice: ['', Validators.required],
-      productImage: ['', Validators.required],
-      productDescription: ['', Validators.required],
-      productCategory: ['', Validators.required],
+      productName: [this.product.name, Validators.required],
+      productType: [this.product.type, Validators.required],
+      productPrice: [this.product.price, Validators.required],
+      productImage: [this.product.img, Validators.required],
+      productDescription: [this.product.description, Validators.required],
+      productCategory: [this.product.category, Validators.required],
     });
   }
 
   editProduct() {
     this.productId = this.actRoute.snapshot.params['id'];
-    this.product = this.product.getById(this.productId);
+    this.product = this.productService.getById(this.productId);
     if (this.product) {
       let name = this.editFormGroup.value.productName;
       let type = this.editFormGroup.value.productType;

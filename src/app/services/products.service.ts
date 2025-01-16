@@ -224,7 +224,7 @@ export class ProductsService {
     description: string,
     category: string
   ) {
-    let product = this.products.find((p) => p.id === id);
+    let product = this.products.find((p) => p.id == id);
     if (product) {
       product.name = name;
       product.type = type;
