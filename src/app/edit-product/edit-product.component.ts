@@ -59,6 +59,8 @@ export class EditProductComponent {
         category
       );
     }
-    this.router.navigateByUrl('manageproducts');
+    setTimeout(() => {
+      this.router.navigateByUrl('manageproducts');
+    }, 1000);
   }
 }

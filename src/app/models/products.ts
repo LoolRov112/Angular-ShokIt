@@ -1,10 +1,9 @@
-
 export class Product {
   id: number;
   name: string;
   type: string;
   price: number;
-  img: string;
+  image: string;
   description: string;
   category: string;
 
@@ -13,7 +12,7 @@ export class Product {
     name: string,
     type: string,
     price: number,
-    img: string,
+    image: string,
     description: string,
     category: string
   ) {
@@ -21,7 +20,7 @@ export class Product {
     this.name = name;
     this.type = type;
     this.price = price;
-    this.img = img;
+    this.image = image;
     this.description = description;
     this.category = category;
   }

@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { ProductsService } from '../services/products.service';
-// import { Product } from '../models/products';
 import { Router } from '@angular/router';
 
 @Component({
@@ -47,6 +46,8 @@ export class AddProductComponent {
       }
     }
     this.productService.add(name, type, price, image, description, category);
-    this.router.navigateByUrl('manageproducts');
+    setTimeout(() => {
+      this.router.navigateByUrl('manageproducts');
+    }, 1000);
   }
 }

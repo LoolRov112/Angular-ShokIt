@@ -3,8 +3,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { UsersService } from '../services/users.service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { User } from '../models/user';
-import { fork } from 'child_process';
 
 @Component({
   selector: 'app-navbar',

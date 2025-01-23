@@ -35,7 +35,6 @@ export class ViewProductsComponent {
   }
   search() {
     let category = this.searchForm.value.category;
-    console.log('saybuya');
     // if (!isNaN(price)) {
     //   if (price == null || price == '')
     //     this.productsToShow = this.productService.getproducts();
@@ -47,5 +46,10 @@ export class ViewProductsComponent {
   }
   goToEdit(id: number) {
     this.router.navigateByUrl(`manageproducts/editProduct/${id}`);
+  }
+  removeProduct(product: Product) {
+    setTimeout(() => {
+      this.productService.remove(product);
+    }, 1000);
   }
 }
