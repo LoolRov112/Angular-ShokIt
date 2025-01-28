@@ -47,9 +47,9 @@ export class ViewProductsComponent {
   goToEdit(id: number) {
     this.router.navigateByUrl(`manageproducts/editProduct/${id}`);
   }
-  removeProduct(product: Product) {
-    setTimeout(() => {
-      this.productService.remove(product);
-    }, 1000);
-  }
+  // removeProduct(product: Product) {
+  //   setTimeout(() => {
+  //     this.productService.remove(product);
+  //   }, 1000);
+  // }
 }

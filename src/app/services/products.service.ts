@@ -87,15 +87,15 @@ export class ProductsService {
       this.update(product).subscribe((data) => this.refresh());
     }
   }
-  // service
-  delete(product: Product) {
-    let urlById = `${this.url}/${product.id}`;
-    return this.http.delete(urlById, { headers: this.headers });
-  }
-  // client
-  remove(product: Product) {
-    this.delete(product).subscribe(() => this.refresh);
-  }
+  // // service
+  // delete(product: Product) {
+  //   let urlById = `${this.url}/${product.id}`;
+  //   return this.http.delete(urlById, { headers: this.headers });
+  // }
+  // // client
+  // remove(product: Product) {
+  //   this.delete(product).subscribe(() => this.refresh);
+  // }
 
   getByPrice(price: number) {
     return this.products.filter((product) => product.price <= price);

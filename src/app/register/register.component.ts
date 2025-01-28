@@ -40,7 +40,7 @@ export class RegisterComponent {
         this.signUpForm.value.mail,
         this.signUpForm.value.birthDate,
         this.signUpForm.value.gender,
-        this.signUpForm.value.password
+        this.signUpForm.value.pass
       );
       if (!user) alert('user already exists');
       alert('Welcome To Our Site');

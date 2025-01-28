@@ -9,7 +9,7 @@ import { NgIf } from '@angular/common';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, NgIf],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
   h: string = 'Home';
@@ -18,23 +18,38 @@ export class NavbarComponent {
   a: string = 'About us';
   l: string = 'Login';
   isLoggedIn: boolean = false;
-  logo: string = '';
+  isAdmin: boolean = false;
+  logo: string | null = '';
+
   constructor(private userService: UsersService, private router: Router) {
-    this.userService.isLoggedIn.subscribe(
-      (status) => (this.isLoggedIn = status)
-    );
+    this.userService.isLoggedIn.subscribe((status) => {
+      this.isLoggedIn = status;
+    });
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.getItem('loggedIn') === 'true'
+        ? (this.isLoggedIn = true)
+        : (this.isLoggedIn = false);
+
+      this.userService.isAdmin.subscribe((status) => {
+        this.isAdmin = status;
+      });
+      sessionStorage.getItem('admin') === 'true'
+        ? (this.isAdmin = true)
+        : (this.isAdmin = false);
+    }
   }
 
   logout() {
+    this.isAdmin = false;
+    this.isLoggedIn = false;
     this.userService.logout();
-    this.isLoggedIn = this.userService.isLoggedIn.getValue();
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('mail');
     sessionStorage.removeItem('birthDate');
     sessionStorage.removeItem('gender');
     sessionStorage.removeItem('img');
-    sessionStorage.setItem('loggedIn', 'false');
-    console.log(this.isLoggedIn);
+    sessionStorage.removeItem('loggedIn');
+    sessionStorage.removeItem('admin');
     this.router.navigateByUrl('/profile');
   }
 }

@@ -38,12 +38,6 @@ export class LoginComponent {
     if (user == null) alert('Wrong email or password');
     else {
       this.isLoggedIn = true;
-      sessionStorage.setItem('name', user.name);
-      sessionStorage.setItem('mail', user.mail);
-      sessionStorage.setItem('birthDate', user.bitrhDate);
-      sessionStorage.setItem('gender', user.gender);
-      sessionStorage.setItem('img', user.image);
-      sessionStorage.setItem('loggedIn', JSON.stringify(this.isLoggedIn));
       alert('You Welcome');
       this.router.navigateByUrl('profile/userDetails');
     }
