@@ -25,7 +25,9 @@ export class ViewProductsComponent {
     private router: Router,
     private productService: ProductsService
   ) {
-    this.products = productService.getproducts();
+    setTimeout(() => {
+      this.products = productService.getproducts();
+    }, 10);
     this.searchForm = this.formBuilder.group({
       category: ['', Validators.required],
     });

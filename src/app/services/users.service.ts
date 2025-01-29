@@ -49,7 +49,7 @@ export class UsersService {
         sessionStorage.setItem('mail', user.mail);
         sessionStorage.setItem('gender', user.gender);
         sessionStorage.setItem('img', user.image);
-        sessionStorage.setItem('birthDate', user.bitrhDate);
+        sessionStorage.setItem('birthDate', user.birthDate);
         sessionStorage.setItem('admin', JSON.stringify(user.isAdmin));
 
         return user;

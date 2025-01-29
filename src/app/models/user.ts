@@ -1,7 +1,7 @@
 export class User {
   name: string;
   mail: string;
-  bitrhDate: string;
+  birthDate: string;
   gender: string;
   image: string;
   password: string;
@@ -9,13 +9,13 @@ export class User {
   constructor(
     name: string,
     mail: string,
-    bitrhDate: string,
+    birthDate: string,
     gender: string,
     password: string
   ) {
     this.name = name;
     this.mail = mail;
-    this.bitrhDate = bitrhDate;
+    this.birthDate = birthDate;
     this.gender = gender;
     this.gender === 'male'
       ? (this.image = '/assets/images/maleLogo.avif')

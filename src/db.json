@@ -3,7 +3,7 @@
     {
       "name": "harel",
       "mail": "harel@gmail.com",
-      "birthDate": "13-04-2001",
+      "birthDate": "2001-04-13",
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
@@ -12,7 +12,7 @@
     {
       "name": "maayan",
       "mail": "maayan@gmail.com",
-      "birthDate": "5.08.1995",
+      "birthDate": "1995-08-05",
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
@@ -20,8 +20,8 @@
     },
     {
       "name": "moran",
-      "mail": "moran@yahoo.org.il",
-      "birthDate": "31.10.1999",
+      "mail": "moran@braude.org.il",
+      "birthDate": "1980-10-31",
       "gender": "female",
       "image": "/assets/images/femaleLogo.jpg",
       "password": "1234",
@@ -30,7 +30,7 @@
     {
       "name": "kfiros",
       "mail": "kfir@walla.co.il",
-      "birthDate": "3.8.1899",
+      "birthDate": "1899-08-03",
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
@@ -39,7 +39,7 @@
     {
       "name": "shahaf",
       "mail": "shahafgor@gov.il",
-      "birthDate": "31.2.1997",
+      "birthDate": "1997-02-31",
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",

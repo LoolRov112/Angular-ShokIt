@@ -6,7 +6,10 @@
     <li class="notLogIn"><a routerLink='about' routerLinkActive="active">{{a}}</a></li>
     <li class="notLogIn" *ngIf="isAdmin && isLoggedIn"><a routerLink='manageproducts' routerLinkActive="active">Manage
         Products</a></li>
-
+    <li>
+      <a><img [src]="logo" style="width: 30px;"></a>
+    </li>
+    <li class="notLogIn" *ngIf="!isLoggedIn"><a routerLink='profile' routerLinkActive="active">{{l}}</a></li>
     <!-- Dropdown -->
     <div class="ms-3 p-0 btn-group dropdown position-absolute" *ngIf="isLoggedIn">
       <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -22,6 +25,6 @@
       </div>
     </div>
 
-    <li class="notLogIn" *ngIf="!isLoggedIn"><a routerLink='profile' routerLinkActive="active">{{l}}</a></li>
+
   </ul>
 </nav>

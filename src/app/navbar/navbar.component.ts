@@ -19,7 +19,7 @@ export class NavbarComponent {
   l: string = 'Login';
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
-  logo: string | null = '';
+  logo: string = '/assets/images/Logo.png';
 
   constructor(private userService: UsersService, private router: Router) {
     this.userService.isLoggedIn.subscribe((status) => {
@@ -29,7 +29,11 @@ export class NavbarComponent {
       sessionStorage.getItem('loggedIn') === 'true'
         ? (this.isLoggedIn = true)
         : (this.isLoggedIn = false);
-
+      let res = sessionStorage.getItem('img');
+      if (res) {
+        this.logo = res;
+        //location.reload();
+      }
       this.userService.isAdmin.subscribe((status) => {
         this.isAdmin = status;
       });
@@ -51,5 +55,6 @@ export class NavbarComponent {
     sessionStorage.removeItem('loggedIn');
     sessionStorage.removeItem('admin');
     this.router.navigateByUrl('/profile');
+    this.logo = '/assets/images/Logo.png';
   }
 }
