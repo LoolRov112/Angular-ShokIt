@@ -19,34 +19,25 @@ export class NavbarComponent {
   l: string = 'Login';
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
-  logo: string = '/assets/images/Logo.png';
+  logo: any = '/assets/images/Logo.png';
 
-  constructor(private userService: UsersService, private router: Router) {
-    this.userService.isLoggedIn.subscribe((status) => {
-      this.isLoggedIn = status;
-    });
-    if (typeof sessionStorage !== 'undefined') {
-      sessionStorage.getItem('loggedIn') === 'true'
-        ? (this.isLoggedIn = true)
-        : (this.isLoggedIn = false);
-      let res = sessionStorage.getItem('img');
-      if (res) {
-        this.logo = res;
-        //location.reload();
+  constructor(private router: Router) {
+    this.router.events.subscribe((data: any) => {
+      if (data.url) {
+        if (sessionStorage.getItem('mail')) {
+          this.isLoggedIn = true;
+          this.logo = sessionStorage.getItem('img');
+          if (sessionStorage.getItem('admin') === 'true') {
+            this.isAdmin = true;
+          }
+        }
       }
-      this.userService.isAdmin.subscribe((status) => {
-        this.isAdmin = status;
-      });
-      sessionStorage.getItem('admin') === 'true'
-        ? (this.isAdmin = true)
-        : (this.isAdmin = false);
-    }
+    });
   }
 
   logout() {
     this.isAdmin = false;
     this.isLoggedIn = false;
-    this.userService.logout();
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('mail');
     sessionStorage.removeItem('birthDate');
@@ -54,7 +45,7 @@ export class NavbarComponent {
     sessionStorage.removeItem('img');
     sessionStorage.removeItem('loggedIn');
     sessionStorage.removeItem('admin');
-    this.router.navigateByUrl('/profile');
     this.logo = '/assets/images/Logo.png';
+    this.router.navigateByUrl('home');
   }
 }

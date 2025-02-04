@@ -7,7 +7,8 @@
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
-      "isAdmin": true
+      "isAdmin": true,
+      "id": "147c"
     },
     {
       "name": "maayan",
@@ -16,7 +17,8 @@
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
-      "isAdmin": true
+      "isAdmin": true,
+      "id": "61d2"
     },
     {
       "name": "moran",
@@ -25,7 +27,8 @@
       "gender": "female",
       "image": "/assets/images/femaleLogo.jpg",
       "password": "1234",
-      "isAdmin": true
+      "isAdmin": true,
+      "id": "a086"
     },
     {
       "name": "kfiros",
@@ -34,7 +37,8 @@
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
-      "isAdmin": false
+      "isAdmin": false,
+      "id": "dde9"
     },
     {
       "name": "shahaf",
@@ -43,7 +47,8 @@
       "gender": "male",
       "image": "/assets/images/maleLogo.avif",
       "password": "1234",
-      "isAdmin": false
+      "isAdmin": false,
+      "id": "c5a4"
     },
     {
       "id": "87c8",
@@ -58,7 +63,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Avocado",
       "type": "Atinger",
       "price": 10,
@@ -67,7 +72,7 @@
       "category": "fruit"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Apple",
       "type": "Pink-Lady",
       "price": 12,
@@ -76,7 +81,7 @@
       "category": "fruit"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Grapes",
       "type": "Seible",
       "price": 20,
@@ -85,7 +90,7 @@
       "category": "fruit"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Passion-fruit",
       "type": "Edulis",
       "price": 30,
@@ -94,7 +99,7 @@
       "category": "fruit"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Chestnuts",
       "type": "Asian",
       "price": 22,
@@ -103,7 +108,7 @@
       "category": "fruit"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Dragon Fruit",
       "type": "Pitaya",
       "price": 15,
@@ -112,7 +117,7 @@
       "category": "fruit"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Mangosteen",
       "type": "Queen of Fruits",
       "price": 25,
@@ -121,7 +126,7 @@
       "category": "fruit"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Rambutan",
       "type": "Exotic",
       "price": 18,
@@ -130,7 +135,7 @@
       "category": "fruit"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Pineberry",
       "type": "White Strawberry",
       "price": 40,
@@ -139,7 +144,7 @@
       "category": "fruit"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Milk",
       "type": "Full Cream",
       "price": 5,
@@ -148,7 +153,7 @@
       "category": "dairy"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Cheese",
       "type": "Cheddar",
       "price": 7,
@@ -157,7 +162,7 @@
       "category": "dairy"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Yogurt",
       "type": "Greek",
       "price": 4,
@@ -166,7 +171,7 @@
       "category": "dairy"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Almonds",
       "type": "Raw",
       "price": 8,
@@ -175,7 +180,7 @@
       "category": "nuts"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Cashews",
       "type": "Salted",
       "price": 10,
@@ -184,7 +189,7 @@
       "category": "nuts"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Peanuts",
       "type": "Roasted",
       "price": 5,
@@ -193,7 +198,7 @@
       "category": "nuts"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Carrot",
       "type": "Organic",
       "price": 3,
@@ -202,7 +207,7 @@
       "category": "vegetable"
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Tomato",
       "type": "Roma",
       "price": 6,
@@ -211,7 +216,7 @@
       "category": "vegetable"
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Cucumber",
       "type": "Green",
       "price": 4,
@@ -220,7 +225,7 @@
       "category": "vegetable"
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "lala",
       "type": "Fruit",
       "price": 20,
@@ -229,7 +234,7 @@
       "category": "Fruit"
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "bubu",
       "type": "Fruit",
       "price": 20,

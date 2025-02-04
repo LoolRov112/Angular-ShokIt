@@ -7,7 +7,7 @@
     <li class="notLogIn" *ngIf="isAdmin && isLoggedIn"><a routerLink='manageproducts' routerLinkActive="active">Manage
         Products</a></li>
     <li>
-      <a><img [src]="logo" style="width: 30px;"></a>
+      <img [src]="logo" style="width: 2.4em;">
     </li>
     <li class="notLogIn" *ngIf="!isLoggedIn"><a routerLink='profile' routerLinkActive="active">{{l}}</a></li>
     <!-- Dropdown -->

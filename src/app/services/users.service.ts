@@ -7,25 +7,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UsersService {
-  isLoggedIn = new BehaviorSubject<boolean>(false);
-  isAdmin = new BehaviorSubject<boolean>(false);
   url: string = 'http://localhost:3000/users';
   headers = { 'content-type': 'application/json' };
   users: User[] = [];
-  // users: User[] = [
-  //   new User('harel', 'harel@gmail.com', '13.04.2001', 'male', '1234', true),
-  //   new User('maayan', 'maayan@gmail.com', '5.08.1995', 'male', '1234', true),
-  //   new User(
-  //     'moran',
-  //     'moran@yahoo.org.il',
-  //     '31.10.1999',
-  //     'female',
-  //     '1234',
-  //     true
-  //   ),
-  //   new User('kfiros', 'kfir@walla.co.il', '3.8.1899', 'male', '1234', false),
-  //   new User('shahaf', 'shahafgor@gov.il', '31.2.1997', 'male', '1234', false),
-  // ];
 
   constructor(private http: HttpClient) {
     this.refresh();
@@ -42,8 +26,6 @@ export class UsersService {
   login(email: string, pass: string): User | null {
     for (let user of this.users) {
       if (user.mail == email && user.password == pass) {
-        this.isLoggedIn.next(true);
-        this.isAdmin.next(user.isAdmin);
         sessionStorage.setItem('loggedIn', 'true');
         sessionStorage.setItem('name', user.name);
         sessionStorage.setItem('mail', user.mail);
@@ -76,9 +58,6 @@ export class UsersService {
     this.users.push(user);
     this.insert(user).subscribe(() => this.refresh());
     return true;
-  }
-  logout() {
-    this.isLoggedIn.next(false);
   }
 
   setImg(image: string | any) {
