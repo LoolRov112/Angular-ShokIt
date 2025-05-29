@@ -2,7 +2,7 @@ let count: number = 18;
 import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -27,18 +27,24 @@ export class ProductsService {
   getproducts() {
     return this.products;
   }
-  getPopular(): Product[] {
-    return this.products.filter(
-      (product) => product.id >= 1 && product.id <= 7
+  getPopular(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url).pipe(
+      map((products) => {
+        console.log('📦 מוצרים מהשרת:', products);
+        return products.filter((p) => p.price >= 7 && p.price <= 30);
+      })
     );
   }
-  getById(id: number) {
-    return this.products.find((product) => product.id == id);
+
+  getById(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.url}/${id}`);
   }
   // service
   insert(product: Product) {
     let body = JSON.stringify(product);
-    return this.http.post(this.url, body, { headers: this.headers });
+    return this.http.post(`${this.url}/addProduct`, body, {
+      headers: this.headers,
+    });
   }
   // client
   add(
@@ -49,26 +55,20 @@ export class ProductsService {
     description: string,
     category: string
   ) {
-    let p: Product = new Product(
-      ++count,
-      name,
-      type,
-      price,
-      img,
-      description,
-      category
-    );
+    let p: Product = new Product(name, type, price, img, description, category);
     this.insert(p).subscribe((data) => this.refresh());
   }
 
   // service
   update(product: Product): Observable<any> {
     let body = JSON.stringify(product);
-    return this.http.put(this.url, body, { headers: this.headers });
+    return this.http.put(`${this.url}/updateProduct/${product._id}`, body, {
+      headers: this.headers,
+    });
   }
   // client
   change(
-    id: number,
+    id: string,
     name: string,
     type: string,
     price: number,
@@ -76,7 +76,7 @@ export class ProductsService {
     description: string,
     category: string
   ) {
-    let product = this.products.find((p) => p.id == id);
+    let product = this.products.find((p) => p._id === id);
     if (product) {
       product.name = name;
       product.type = type;

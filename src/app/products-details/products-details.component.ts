@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../models/products';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../services/products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products-details',
@@ -15,10 +16,12 @@ export class ProductsDetailsComponent {
   constructor(
     private actRoute: ActivatedRoute,
     private router: Router,
-    productService: ProductsService
+    private productService: ProductsService
   ) {
     let id = actRoute.snapshot.params['id'];
-    this.selectedProduct = productService.getById(id);
+    this.productService.getById(id).subscribe((product: Product) => {
+      this.selectedProduct = product;
+    });
   }
   goBackHome() {
     this.router.navigateByUrl('home');

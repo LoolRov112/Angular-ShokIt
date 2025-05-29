@@ -33,7 +33,6 @@ export class UsersService {
         sessionStorage.setItem('img', user.image);
         sessionStorage.setItem('birthDate', user.birthDate);
         sessionStorage.setItem('admin', JSON.stringify(user.isAdmin));
-
         return user;
       }
     }
@@ -42,7 +41,9 @@ export class UsersService {
   // service
   insert(user: User) {
     let body = JSON.stringify(user);
-    return this.http.post(this.url, body, { headers: this.headers });
+    return this.http.post(`${this.url}/register`, body, {
+      headers: this.headers,
+    });
   }
 
   // client

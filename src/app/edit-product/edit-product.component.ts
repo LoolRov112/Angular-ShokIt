@@ -18,7 +18,7 @@ import { Product } from '../models/products';
 })
 export class EditProductComponent {
   editFormGroup!: FormGroup;
-  productId!: number;
+  productId!: string;
   product: Product | any;
 
   constructor(

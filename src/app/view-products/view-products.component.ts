@@ -46,7 +46,7 @@ export class ViewProductsComponent {
       this.products = this.productService.getProductsByCategory(category);
     }
   }
-  goToEdit(id: number) {
+  goToEdit(id: string) {
     this.router.navigateByUrl(`manageproducts/editProduct/${id}`);
   }
   // removeProduct(product: Product) {
