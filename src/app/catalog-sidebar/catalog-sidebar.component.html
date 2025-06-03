@@ -1,40 +1,45 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-xl-2 px-sm-2 px-0 bg-dark mt-0">
-            <div
-                class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ms-0">
-                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li>
-                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
-                            (click)="onCategorySelect('all')">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">All</span>
+        <div class="col-xl-2 px-sm-2 px-0 bg-sidebar mt-0">
+            <div class="d-flex flex-column align-items-center pt-2 text-dark min-vh-100 ms-0">
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center w-100" id="menu">
+
+                    <li class="w-100">
+                        <button class="sidebar-button" (click)="onCategorySelect('all')">
+                            <img src="assets/images/icons/all.png" alt="All" class="sidebar-img">
+                            <div>All</div>
                         </button>
                     </li>
-                    <li class="nav-item">
-                        <button class="nav-link align-middle px-0" (click)="onCategorySelect('fruit')">
-                            <i class="fs-4 bi-apple"></i> <span class="ms-1 d-none d-sm-inline">Fruits</span>
+
+                    <li class="w-100">
+                        <button class="sidebar-button" (click)="onCategorySelect('fruit')">
+                            <img src="assets/images/icons/waterMelon.png" alt="Fruits" class="sidebar-img">
+                            <div>Fruits</div>
                         </button>
                     </li>
-                    <li>
-                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
-                            (click)="onCategorySelect('vegetable')">
-                            <i class="fs-4 fas fa-carrot"></i> <span class="ms-1 d-none d-sm-inline">Vegetables</span>
+
+                    <li class="w-100">
+                        <button class="sidebar-button" (click)="onCategorySelect('vegetable')">
+                            <img src="assets/images/icons/carrot.png" alt="Vegetables" class="sidebar-img">
+                            <div>Vegetables</div>
                         </button>
                     </li>
-                    <li>
-                        <button class="nav-link px-0 align-middle" (click)="onCategorySelect('nuts')">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Snacks</span>
+
+                    <li class="w-100">
+                        <button class="sidebar-button" (click)="onCategorySelect('nuts')">
+                            <img src="assets/images/icons/snack.png" alt="Snacks" class="sidebar-img">
+                            <div>Snacks</div>
                         </button>
                     </li>
-                    <li class="mb-5">
-                        <button data-bs-toggle="collapse" class="nav-link px-0 align-middle"
-                            (click)="onCategorySelect('dairy')">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Dairy
-                                products</span>
+
+                    <li class="w-100 mb-5">
+                        <button class="sidebar-button" (click)="onCategorySelect('dairy')">
+                            <img src="assets/images/icons/cheese.png" alt="Dairy" class="sidebar-img">
+                            <div>Dairy products</div>
                         </button>
                     </li>
+
                 </ul>
-               
             </div>
         </div>
     </div>

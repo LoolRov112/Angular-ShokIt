@@ -60,3 +60,11 @@ li a:active {
   background-color: #0a3d2a; /* כשיש פוקוס על אלמנט */
   color: #fff;
 }
+li.nav-icon {
+  float: left;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

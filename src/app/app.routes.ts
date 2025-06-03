@@ -12,6 +12,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { ManageproductsComponent } from './manageproducts/manageproducts.component';
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CartComponent } from './cart/cart.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
   },
   {
     path: 'profile',

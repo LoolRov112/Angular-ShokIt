@@ -19,14 +19,17 @@ export class NavbarComponent {
   l: string = 'Login';
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
-  logo: any = '/assets/images/Logo.png';
+  logo: string = '';
 
   constructor(private router: Router) {
     this.router.events.subscribe((data: any) => {
       if (data.url) {
         if (sessionStorage.getItem('mail')) {
           this.isLoggedIn = true;
-          this.logo = sessionStorage.getItem('img');
+          if (sessionStorage.getItem('gender') === 'female')
+            this.logo = `<span class="material-symbols-outlined bg-danger">woman</span>`;
+          else
+            this.logo = `<span class="material-symbols-outlined bg-primary">man</span>`;
           if (sessionStorage.getItem('admin') === 'true') {
             this.isAdmin = true;
           }

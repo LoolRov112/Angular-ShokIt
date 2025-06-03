@@ -27,7 +27,9 @@ export class ViewProductsComponent {
     private productService: ProductsService
   ) {
     setTimeout(() => {
-      this.products = productService.getproducts();
+      this.productService.getproducts().subscribe((products: Product[]) => {
+        this.products = products;
+      });
     }, 10);
     this.searchForm = this.formBuilder.group({
       category: ['', Validators.required],
@@ -51,9 +53,12 @@ export class ViewProductsComponent {
     this.router.navigateByUrl(`manageproducts/updateProduct/${id}`);
   }
   removeProduct(product: Product) {
-    this.productService.remove(product);
+    this.productService.remove(product); // לא מחזירה כלום, אז אין subscribe
+
     setTimeout(() => {
-      this.products = this.productService.getproducts();
-    }, 1000);
+      this.productService.getproducts().subscribe((products: Product[]) => {
+        this.products = products;
+      });
+    }, 500); // מספיק בדרך כלל חצי שנייה, אלא אם השרת ממש איטי
   }
 }

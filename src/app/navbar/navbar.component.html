@@ -6,9 +6,8 @@
     <li class="notLogIn"><a routerLink='about' routerLinkActive="active">{{a}}</a></li>
     <li class="notLogIn" *ngIf="isAdmin && isLoggedIn"><a routerLink='manageproducts' routerLinkActive="active">Manage
         Products</a></li>
-    <li>
-      <img [src]="logo" style="width: 2.4em;">
-    </li>
+    <li class="nav-icon" *ngIf="isLoggedIn" [innerHTML]="logo"></li>
+
     <li class="notLogIn" *ngIf="!isLoggedIn"><a routerLink='profile' routerLinkActive="active">{{l}}</a></li>
     <!-- Dropdown -->
     <div class="ms-3 p-0 btn-group dropdown position-absolute" *ngIf="isLoggedIn">

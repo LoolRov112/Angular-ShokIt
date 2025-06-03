@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { json } from 'node:stream/consumers';
 
 @Injectable({
   providedIn: 'root',
@@ -25,13 +24,12 @@ export class ProductsService {
   getProductsByCategory(category: string): Product[] {
     return this.products.filter((product) => product.category === category);
   }
-  getproducts() {
-    return this.products;
+  getproducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.url);
   }
   getPopular(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url).pipe(
       map((products) => {
-        console.log('📦 מוצרים מהשרת:', products);
         return products.filter((p) => p.price >= 7 && p.price <= 30);
       })
     );

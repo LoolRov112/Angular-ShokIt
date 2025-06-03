@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ProductsService } from '../services/products.service';
 import { Router } from '@angular/router';
+import { Product } from '../models/products';
 
 @Component({
   selector: 'app-add-product',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent {
   addProductForm!: FormGroup;
+  products: Product[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,13 +35,16 @@ export class AddProductComponent {
     });
   }
   add() {
+    this.productService.getproducts().subscribe((products: Product[]) => {
+      this.products = products;
+    });
     let name = this.addProductForm.value.productName;
     let type = this.addProductForm.value.productType;
     let price = this.addProductForm.value.productPrice;
     let image = this.addProductForm.value.productImage;
     let description = this.addProductForm.value.productDescription;
     let category = this.addProductForm.value.productCategory;
-    for (let p of this.productService.getproducts()) {
+    for (let p of this.products) {
       if (name == p.name && type == p.type) {
         alert('This Products alredy exists');
         return;
