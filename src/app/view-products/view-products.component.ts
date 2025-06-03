@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { sequence } from '@angular/animations';
 
 @Component({
   selector: 'app-view-products',
@@ -47,11 +48,12 @@ export class ViewProductsComponent {
     }
   }
   goToEdit(id: string) {
-    this.router.navigateByUrl(`manageproducts/editProduct/${id}`);
+    this.router.navigateByUrl(`manageproducts/updateProduct/${id}`);
   }
-  // removeProduct(product: Product) {
-  //   setTimeout(() => {
-  //     this.productService.remove(product);
-  //   }, 1000);
-  // }
+  removeProduct(product: Product) {
+    this.productService.remove(product);
+    setTimeout(() => {
+      this.products = this.productService.getproducts();
+    }, 1000);
+  }
 }

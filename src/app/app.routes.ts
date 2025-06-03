@@ -48,7 +48,7 @@ export const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'viewProducts' },
       { path: 'viewProducts', component: ViewProductsComponent },
       { path: 'addProduct', component: AddProductComponent },
-      { path: 'editProduct/:id', component: EditProductComponent },
+      { path: 'updateProduct/:id', component: EditProductComponent },
     ],
   },
   { path: 'products/:id', component: ProductsDetailsComponent },

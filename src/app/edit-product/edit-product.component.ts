@@ -28,14 +28,16 @@ export class EditProductComponent {
     private actRoute: ActivatedRoute
   ) {
     this.productId = actRoute.snapshot.params['id'];
-    this.product = productService.getById(this.productId);
-    this.editFormGroup = this.formBuilder.group({
-      productName: [this.product.name, Validators.required],
-      productType: [this.product.type, Validators.required],
-      productPrice: [this.product.price, Validators.required],
-      productImage: [this.product.img, Validators.required],
-      productDescription: [this.product.description, Validators.required],
-      productCategory: [this.product.category, Validators.required],
+    this.product = productService.getById(this.productId).subscribe((data) => {
+      this.product = data;
+      this.editFormGroup = this.formBuilder.group({
+        productName: [this.product.name, Validators.required],
+        productType: [this.product.type, Validators.required],
+        productPrice: [this.product.price, Validators.required],
+        productImage: [this.product.img, Validators.required],
+        productDescription: [this.product.description, Validators.required],
+        productCategory: [this.product.category, Validators.required],
+      });
     });
   }
 

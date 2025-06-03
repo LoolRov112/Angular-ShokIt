@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/products';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
+import { json } from 'node:stream/consumers';
 
 @Injectable({
   providedIn: 'root',
@@ -87,15 +88,15 @@ export class ProductsService {
       this.update(product).subscribe((data) => this.refresh());
     }
   }
-  // // service
-  // delete(product: Product) {
-  //   let urlById = `${this.url}/${product.id}`;
-  //   return this.http.delete(urlById, { headers: this.headers });
-  // }
+  // service
+  delete(product: Product) {
+    let urlById = `${this.url}/deleteProduct/${product._id}`;
+    return this.http.delete(urlById);
+  }
   // // client
-  // remove(product: Product) {
-  //   this.delete(product).subscribe(() => this.refresh);
-  // }
+  remove(product: Product) {
+    this.delete(product).subscribe((data) => this.refresh());
+  }
 
   getByPrice(price: number) {
     return this.products.filter((product) => product.price <= price);

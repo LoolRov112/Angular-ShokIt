@@ -6,6 +6,7 @@ export class Product {
   image: string;
   description: string;
   category: string;
+  id: any;
 
   constructor(
     name: string,
