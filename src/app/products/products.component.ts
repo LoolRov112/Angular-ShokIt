@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Product } from '../models/products';
 import { CommonModule } from '@angular/common';
 import { ProductsService } from '../services/products.service';
 import { RouterLink } from '@angular/router';
+
+declare var bootstrap: any;
 
 import {
   FormGroup,
@@ -11,7 +13,7 @@ import {
   FormBuilder,
   FormsModule,
 } from '@angular/forms';
-import bootstrap from '../../main.server';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -26,11 +28,13 @@ export class ProductsComponent {
   selectedProduct: Product | null = null;
   selectedQuantity: number = 1;
   searchForm!: FormGroup;
-  name: any;
+  id!: string;
+  email = sessionStorage.getItem('mail') || '';
 
   constructor(
     private productService: ProductsService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cartService: CartService
   ) {
     this.productService.getproducts().subscribe((products: Product[]) => {
       this.allProduct = products;
@@ -56,6 +60,22 @@ export class ProductsComponent {
           this.productsToShow = products;
         });
       else this.productService.getByPrice(price);
+    }
+  }
+  add(email: string, productId: string, qty: number = 1) {
+    if (!email) {
+      console.error('Email is required to add a product to the cart.');
+      return;
+    }
+    this.cartService.addToCart(email, productId, qty).subscribe((response) => {
+      this.closeModal();
+    });
+  }
+  @ViewChild('quantityModal') quantityModal!: ElementRef;
+  closeModal() {
+    const modal = bootstrap.Modal.getInstance(this.quantityModal.nativeElement);
+    if (modal) {
+      modal.hide();
     }
   }
 }

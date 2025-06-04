@@ -3,7 +3,6 @@ import { CartItem } from './cartItem';
 export class Cart {
   email: string;
   items: CartItem[];
-
   constructor(email: string, items: CartItem[] = []) {
     this.email = email;
     this.items = items;

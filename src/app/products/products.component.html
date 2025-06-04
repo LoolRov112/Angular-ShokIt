@@ -22,14 +22,14 @@
                     <div style="font-size: 0.9rem; line-height: 1.4">
                         <p>
                             <a [routerLink]="['../products', product._id]" class="btn btn-secondary p-0 fw-bold">Name:
-                                {{
-                                product.name }}</a>
+                                {{product.name }}</a>
                         </p>
                         <p>Type: {{ product.type }}</p>
+                        <p>Stock: {{ product.stock }}</p>
                         <p>Price: ${{ product.price }}</p>
                     </div>
                     <button class="btn btn-success mt-auto" data-bs-toggle="modal" data-bs-target="#quantityModal"
-                        (click)="selectedProduct = product; selectedQuantity = 1">
+                        (click)="selectedProduct = product; selectedQuantity = 1; id!=product._id">
                         Add to Cart
                     </button>
                 </div>
@@ -39,7 +39,8 @@
 </div>
 
 <!-- Quantity selection popup modal -->
-<div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel" aria-hidden="true">
+<div class="modal fade" id="quantityModal" tabindex="-1" aria-labelledby="quantityModalLabel" aria-hidden="true"
+    #quantityModal>
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,7 +55,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
+                <button type="button" class="btn btn-primary" [disabled]="!selectedProduct || !selectedProduct._id"
+                    (click)="selectedProduct && selectedProduct._id && add(email, selectedProduct._id, selectedQuantity)">Confirm</button>
             </div>
         </div>
     </div>

@@ -16,6 +16,13 @@ export class CartService {
   getCartByEmail(email: string): Observable<Cart> {
     return this.http.get<Cart>(`${this.url}/${email}`);
   }
+  addToCart(email: string, productId: string, quantity: number = 1) {
+    return this.http.post(`${this.url}/addToCart`, {
+      email,
+      productId,
+      quantity,
+    });
+  }
 
   createCart(cart: Cart): Observable<Cart> {
     return this.http.post<Cart>(this.url, cart);

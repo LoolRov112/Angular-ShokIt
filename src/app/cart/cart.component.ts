@@ -25,14 +25,15 @@ export class CartComponent {
         console.log('Cart fetched:', cart);
         this.currentCart = cart;
         this.cartItems = cart.items.map((item) => {
-          const p = item.productId; // במקום item.product
+          const p = item.productId; 
           return new Product(
             p.name,
             p.type,
             p.price,
             p.image,
             p.description,
-            p.category
+            p.category,
+            p.stock
           );
         });
         console.log('Cart fetched:', this.cartItems[0].image);

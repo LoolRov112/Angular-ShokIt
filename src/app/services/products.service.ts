@@ -52,9 +52,18 @@ export class ProductsService {
     price: number,
     img: string,
     description: string,
-    category: string
+    category: string,
+    stock: number
   ) {
-    let p: Product = new Product(name, type, price, img, description, category);
+    let p: Product = new Product(
+      name,
+      type,
+      price,
+      img,
+      description,
+      category,
+      stock
+    );
     this.insert(p).subscribe((data) => this.refresh());
   }
 

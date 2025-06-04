@@ -44,13 +44,23 @@ export class AddProductComponent {
     let image = this.addProductForm.value.productImage;
     let description = this.addProductForm.value.productDescription;
     let category = this.addProductForm.value.productCategory;
+    let stock = this.addProductForm.value.productStock;
+
     for (let p of this.products) {
       if (name == p.name && type == p.type) {
         alert('This Products alredy exists');
         return;
       }
     }
-    this.productService.add(name, type, price, image, description, category);
+    this.productService.add(
+      name,
+      type,
+      price,
+      image,
+      description,
+      category,
+      stock
+    );
     setTimeout(() => {
       this.router.navigateByUrl('manageproducts');
     }, 1000);

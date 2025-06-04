@@ -5,6 +5,7 @@ export class Product {
   price: number;
   image: string;
   description: string;
+  stock: number;
   category: string;
 
   constructor(
@@ -14,6 +15,7 @@ export class Product {
     image: string,
     description: string,
     category: string,
+    stock: number,
     _id?: string
   ) {
     this.name = name;
@@ -22,6 +24,7 @@ export class Product {
     this.image = image;
     this.description = description;
     this.category = category;
+    this.stock = stock;
     if (_id) this._id = _id;
   }
 }
