@@ -13,6 +13,7 @@ export class UserDetailsComponent {
   selectedImg: any = null;
 
   constructor(private usersService: UsersService) {}
+
   userDetails = {
     name: sessionStorage.getItem('name'),
     birthDate: sessionStorage.getItem('birthDate'),

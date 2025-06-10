@@ -19,31 +19,32 @@ export class CartComponent {
   totalPrice: number = 0;
 
   constructor(cartService: CartService, userService: UsersService) {
-    this.userEmail = sessionStorage.getItem('mail') || undefined;
-    if (this.userEmail) {
-      cartService.getCartByEmail(this.userEmail).subscribe((cart: Cart) => {
-        console.log('Cart fetched:', cart);
-        this.currentCart = cart;
-        this.cartItems = cart.items.map((item) => {
-          const p = item.productId; 
-          return new Product(
-            p.name,
-            p.type,
-            p.price,
-            p.image,
-            p.description,
-            p.category,
-            p.stock
-          );
-        });
-        console.log('Cart fetched:', this.cartItems[0].image);
+    if (sessionStorage.getItem('mail') !== undefined) {
+      if (this.userEmail) {
+        cartService.getCartByEmail(this.userEmail).subscribe((cart: Cart) => {
+          console.log('Cart fetched:', cart);
+          this.currentCart = cart;
+          this.cartItems = cart.items.map((item) => {
+            const p = item.productId;
+            return new Product(
+              p.name,
+              p.type,
+              p.price,
+              p.image,
+              p.description,
+              p.category,
+              p.stock
+            );
+          });
+          console.log('Cart fetched:', this.cartItems[0].image);
 
-        // cart.items.forEach((item, index) => {
-        //   console.log(`Item #${index}`, item);
-        // });
-      });
-    } else {
-      console.error('User email not found in session storage.');
+          // cart.items.forEach((item, index) => {
+          //   console.log(`Item #${index}`, item);
+          // });
+        });
+      } else {
+        console.error('User email not found in session storage.');
+      }
     }
   }
 }

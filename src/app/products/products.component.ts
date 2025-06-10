@@ -29,13 +29,16 @@ export class ProductsComponent {
   selectedQuantity: number = 1;
   searchForm!: FormGroup;
   id!: string;
-  email = sessionStorage.getItem('mail') || '';
+  email = '';
 
   constructor(
     private productService: ProductsService,
     private formBuilder: FormBuilder,
     private cartService: CartService
   ) {
+    if (sessionStorage.getItem('mail') !== null) {
+      this.email = sessionStorage.getItem('mail') || '';
+    }
     this.productService.getproducts().subscribe((products: Product[]) => {
       this.allProduct = products;
       this.productsToShow = products;
