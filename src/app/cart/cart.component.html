@@ -33,10 +33,20 @@
 
 </div>
 
-<div class="mt-5 text-center py-5" *ngIf="!currentCart">
-    <div class="spinner-border text-primary mb-3" role="status">
-        <span class="visually-hidden">Loading...</span>
+<div class="mt-5 text-center py-5 bg-light rounded shadow-sm">
+    <div class="mb-3">
+        <i class="bi bi-cart-x text-danger" style="font-size: 3rem;"></i>
     </div>
-    <p class="text-muted">your cart is empty <br>please add products from catalog</p>
+    <h5 class="text-secondary">Your cart is empty</h5>
+    <p class="text-muted mb-0">Browse the catalog to add products</p>
+</div>
 
+<div class="d-flex justify-content-center gap-3 mt-4">
+    <button class="btn btn-outline-primary btn-lg px-4 rounded-pill shadow-sm" (click)="goToCatalog()">
+        <i class="bi bi-box-seam me-2"></i> Go to Catalog
+    </button>
+
+    <button class="btn btn-outline-success btn-lg px-4 rounded-pill shadow-sm" (click)="goToOrders()">
+        <i class="bi bi-clock-history me-2"></i> Order History
+    </button>
 </div>

@@ -13,6 +13,7 @@ import { ManageproductsComponent } from './manageproducts/manageproducts.compone
 import { ViewProductsComponent } from './view-products/view-products.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { CartComponent } from './cart/cart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 export const routes: Routes = [
   {
@@ -57,5 +58,6 @@ export const routes: Routes = [
     ],
   },
   { path: 'products/:id', component: ProductsDetailsComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '**', component: NotFoundComponent },
 ];

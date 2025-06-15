@@ -4,7 +4,7 @@ import { CartService } from '../services/cart.service';
 import { UsersService } from '../services/users.service';
 import { CommonModule } from '@angular/common';
 import { Product } from '../models/products';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -13,6 +13,7 @@ import { Product } from '../models/products';
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
+  [x: string]: any;
   currentCart: Cart | undefined;
   userEmail: string | undefined;
   cartItems: Product[] = [];
@@ -20,7 +21,11 @@ export class CartComponent {
   qty: Number = 1;
   cartService: CartService | undefined;
 
-  constructor(cartService: CartService, userService: UsersService) {
+  constructor(
+    cartService: CartService,
+    userService: UsersService,
+    private router: Router
+  ) {
     this.cartService = cartService;
     if (
       typeof window !== 'undefined' &&
@@ -52,6 +57,12 @@ export class CartComponent {
         console.error('User email not found in session storage.');
       }
     }
+  }
+  goToCatalog() {
+    this.router.navigateByUrl('/catalog');
+  }
+  goToOrders() {
+    this.router.navigateByUrl('/orders');
   }
 
   payment() {

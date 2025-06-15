@@ -18,7 +18,7 @@
                         <th>Description</th>
                         <th>Category</th>
                         <th>Edit</th>
-                        <th><i class="bi bi-trash3"></i></th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +28,11 @@
                         <td>{{p.price}}₪</td>
                         <td>{{p.description}}</td>
                         <td>{{p.category}}</td>
-                        <td><i class="bi bi-pencil-square" (click)="goToEdit(p._id!)"></i></td>
-                        <td><i class="bi bi-trash3" (click)="removeProduct(p)"></i></td>
+                        <td>
+                            <img class="img-fluid w-25" src="assets/images/icons/edit.png" (click)="goToEdit(p._id!)">
+                        </td>
+                        <td><img class="img-fluid w-25" src="assets/images/icons/trash.png" (click)="removeProduct(p)">
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UsersService {
+  [x: string]: any;
   url: string = 'http://localhost:3000/users';
   headers = { 'content-type': 'application/json' };
   users: User[] = [];
@@ -65,5 +66,11 @@ export class UsersService {
     for (let user of this.users) {
       if (user.name == sessionStorage.getItem('name')) this.setImg(image);
     }
+  }
+
+  deleteAcount(email: string) {
+    return this.http.delete(`${this.url}/deleteUser/${email}`, {
+      headers: this.headers,
+    });
   }
 }

@@ -75,6 +75,18 @@ export class ProductsComponent {
       console.error('Email is required to add a product to the cart.');
       return;
     }
+    if (
+      qty <= 0 ||
+      (this.selectedProduct &&
+        this.selectedProduct.stock !== undefined &&
+        qty > this.selectedProduct.stock)
+    ) {
+      alert(
+        'Quantity must be greater than zero and less than or equal to available stock.'
+      );
+      this.closeModal();
+      return;
+    }
     this.cartService.addToCart(email, productId, qty).subscribe((response) => {
       this.closeModal();
     });

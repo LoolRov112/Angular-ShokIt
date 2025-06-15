@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { json } from 'node:stream/consumers';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css',
 })
 export class UserDetailsComponent {
   selectedImg: any = null;
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService, private router: Router) {}
 
   userDetails = {
     name: sessionStorage.getItem('name'),
@@ -37,6 +39,18 @@ export class UserDetailsComponent {
       };
 
       reader.readAsDataURL(file);
+    }
+  }
+
+  deleteProfile() {
+    const mail = sessionStorage.getItem('mail');
+    if (mail) {
+      this.usersService.deleteAcount(mail).subscribe(() => {
+        sessionStorage.clear();
+        this.router.navigateByUrl('/profile/login');
+      });
+    } else {
+      console.log('No mail found in sessionStorage.');
     }
   }
 }

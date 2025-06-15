@@ -40,4 +40,8 @@ export class CartService {
       email,
     });
   }
+
+  getLatestCart(email: string): Observable<Cart> {
+    return this.http.get<Cart>(`http://localhost:3000/orders/${email}`);
+  }
 }
