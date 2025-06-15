@@ -2,7 +2,7 @@
   <ul>
     <li class="notLogIn"><a routerLink='home' routerLinkActive="active">{{h}}</a></li>
     <li class="notLogIn"><a routerLink='catalog' routerLinkActive="active">{{n}}</a></li>
-    <li class="notLogIn"><a routerLink='cart' routerLinkActive="active">{{c}}</a></li>
+    <li class="notLogIn" *ngIf="isLoggedIn"><a routerLink='cart' routerLinkActive="active">{{c}}</a></li>
     <li class="notLogIn"><a routerLink='about' routerLinkActive="active">{{a}}</a></li>
     <li class="notLogIn" *ngIf="isAdmin && isLoggedIn"><a routerLink='manageproducts' routerLinkActive="active">Manage
         Products</a></li>

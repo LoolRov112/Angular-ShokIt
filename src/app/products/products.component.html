@@ -28,7 +28,8 @@
                         <p>Stock: {{ product.stock }}</p>
                         <p>Price: ${{ product.price }}</p>
                     </div>
-                    <button class="btn btn-success mt-auto" data-bs-toggle="modal" data-bs-target="#quantityModal"
+                    <button *ngIf="isLoggedIn" class="btn btn-success mt-auto" data-bs-toggle="modal"
+                        data-bs-target="#quantityModal"
                         (click)="selectedProduct = product; selectedQuantity = 1; id!=product._id">
                         Add to Cart
                     </button>

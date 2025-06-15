@@ -17,15 +17,23 @@ export class CartComponent {
   userEmail: string | undefined;
   cartItems: Product[] = [];
   totalPrice: number = 0;
+  qty: Number = 1;
+  cartService: CartService | undefined;
 
   constructor(cartService: CartService, userService: UsersService) {
-    if (sessionStorage.getItem('mail') !== undefined) {
+    this.cartService = cartService;
+    if (
+      typeof window !== 'undefined' &&
+      typeof sessionStorage !== 'undefined'
+    ) {
+      this.userEmail = sessionStorage.getItem('mail') || '';
       if (this.userEmail) {
         cartService.getCartByEmail(this.userEmail).subscribe((cart: Cart) => {
-          console.log('Cart fetched:', cart);
           this.currentCart = cart;
           this.cartItems = cart.items.map((item) => {
             const p = item.productId;
+            this.qty = item.quantity;
+            this.totalPrice += p.price * item.quantity;
             return new Product(
               p.name,
               p.type,
@@ -33,11 +41,9 @@ export class CartComponent {
               p.image,
               p.description,
               p.category,
-              p.stock
+              item.quantity
             );
           });
-          console.log('Cart fetched:', this.cartItems[0].image);
-
           // cart.items.forEach((item, index) => {
           //   console.log(`Item #${index}`, item);
           // });
@@ -46,5 +52,26 @@ export class CartComponent {
         console.error('User email not found in session storage.');
       }
     }
+  }
+
+  payment() {
+    if (!this.userEmail) {
+      console.error('User email is not defined for payment.');
+      return;
+    }
+
+    if (!this.cartService) {
+      console.error('Cart service is not defined.');
+      return;
+    }
+    this.cartService.payment(this.userEmail).subscribe({
+      next: () => {
+        console.log('Payment successful');
+        this.currentCart = undefined;
+        this.cartItems = [];
+        this.totalPrice = 0;
+      },
+      error: (err) => console.error('Payment failed:', err),
+    });
   }
 }

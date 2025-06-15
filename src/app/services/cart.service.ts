@@ -35,4 +35,9 @@ export class CartService {
   deleteCart(email: string): Observable<any> {
     return this.http.delete(`${this.url}/${email}`);
   }
+  payment(email: string): Observable<any> {
+    return this.http.put(`${this.url}/cart/pay/${email}`, {
+      email,
+    });
+  }
 }

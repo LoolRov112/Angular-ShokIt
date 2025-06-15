@@ -30,14 +30,19 @@ export class ProductsComponent {
   searchForm!: FormGroup;
   id!: string;
   email = '';
+  isLoggedIn: boolean = false;
 
   constructor(
     private productService: ProductsService,
     private formBuilder: FormBuilder,
     private cartService: CartService
   ) {
-    if (sessionStorage.getItem('mail') !== null) {
+    if (
+      typeof window !== 'undefined' &&
+      typeof sessionStorage !== 'undefined'
+    ) {
       this.email = sessionStorage.getItem('mail') || '';
+      this.isLoggedIn = sessionStorage.getItem('loggedIn') === 'true';
     }
     this.productService.getproducts().subscribe((products: Product[]) => {
       this.allProduct = products;
