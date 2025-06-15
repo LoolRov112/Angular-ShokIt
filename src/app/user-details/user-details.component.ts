@@ -46,8 +46,16 @@ export class UserDetailsComponent {
     const mail = sessionStorage.getItem('mail');
     if (mail) {
       this.usersService.deleteAcount(mail).subscribe(() => {
-        sessionStorage.clear();
-        this.router.navigateByUrl('/profile/login');
+        sessionStorage.removeItem('name');
+        sessionStorage.removeItem('mail');
+        sessionStorage.removeItem('birthDate');
+        sessionStorage.removeItem('gender');
+        sessionStorage.removeItem('img');
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('admin');
+        this.router.navigateByUrl('/').then(() => {
+          window.location.reload();
+        });
       });
     } else {
       console.log('No mail found in sessionStorage.');
